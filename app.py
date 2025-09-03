@@ -16,7 +16,7 @@ from googleapiclient.errors import HttpError
 SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
 
 # Token file for Faheem
-TOKEN_FILE = "tokenfaheem.json"
+TOKEN_FILE = "token.json"
 
 def authenticate_gmail():
     """Authenticate and return Gmail API service."""
@@ -29,7 +29,7 @@ def authenticate_gmail():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                "AI-Email-Assistant.json", SCOPES
+                "gmail-api-sameer.json", SCOPES
             )
             creds = flow.run_local_server(port=0)
         with open(TOKEN_FILE, "w") as token:
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     # Example: Send an email
     send_email(
         service,
-        sender="faheemhaider115@gmail.com",      # Replace with your Gmail
+        sender="samzztrades@gmail.com",      # Replace with your Gmail
         to="muhammadfaheemhaider133@gmail.com",     # Replace with recipient Gmail
         subject="Hello from Gmail API",
         body="This is a test email sent using the Gmail API!"
@@ -114,7 +114,7 @@ if __name__ == "__main__":
     # Example: Create a draft
     create_draft(
         service,
-        sender="faheemhaider115@gmail.com",
+        sender="samzztrades@gmail.com",
         to="muhammadfaheemhaider133@gmail.com",
         subject="Draft Test",
         body="This is a saved draft using Gmail API."
